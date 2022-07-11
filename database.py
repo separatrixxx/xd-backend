@@ -250,7 +250,16 @@ class MovieDB:
 		self.cur.execute("""
 					SELECT * 
 					FROM movie
-					WHERE trim(title) LIKE ?;
+					WHERE instr(LOWER(trim(title)), LOWER(?)) <> 0;
 					""", (title,))
-		res = self.cur.fetchone()
+		res = self.cur.fetchall()
+		return res
+
+	def get_movie_by_genres(self, genres: str):
+		self.cur.execute("""
+					SELECT * 
+					FROM movie
+					WHERE instr(LOWER(trim(genres)), LOWER(?)) <> 0;
+					""", (genres,))
+		res = self.cur.fetchall()
 		return res
