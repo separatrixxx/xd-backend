@@ -15,7 +15,7 @@ origins = [
     "https://localhost:8000",
     "http://localhost:3000",
     "https://localhost:3000",
-	"http://xd-psi.vercel.app/",
+    "http://xd-psi.vercel.app/",
     "https://xd-psi.vercel.app",
 ]
 
